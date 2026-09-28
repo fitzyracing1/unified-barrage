@@ -1,0 +1,47 @@
+# Unified / Backwards AI
+
+> Name the output first, derive the model from that output, then freeze a forward runtime.
+
+## Purpose
+Keep a small system that works backward from a finished answer, then runs forward. Source: fitzyracing1/unified.
+
+## How it works (plain English)
+1. Write the output you want.
+2. Work out the smallest model that could produce it.
+3. Freeze that model as a runtime file.
+4. Run forward from the freeze.
+
+## Key ideas
+- Output first (the answer exists before the model)
+- Derived model (the model is pulled from the answer)
+- Frozen runtime (a locked file the forward pass uses)
+
+## The actual code
+```
+# files in source repo fitzyracing1/unified
+backwards_ai.py
+cli.py
+runtime.json
+index.html
+README.md
+```
+
+## Line-by-line translation
+1. backwards_ai.py → “the core that starts from the output”
+2. cli.py → “the short command line that starts a run”
+3. runtime.json → “the frozen forward runtime”
+4. index.html → “the public page for the same idea”
+
+## Decisions the program makes
+- If the output is named → derive the model
+- If the runtime is frozen → do not invent a new model mid-run
+- Otherwise → write the output first and stop inventing tools
+
+## What a person would notice
+The page talks about finished output before it talks about code.
+
+## Current status
+Barrage clone. Source remains the place for the Python.
+
+## Next possible steps
+Open fitzyracing1/unified and run the CLI against one named output.
